@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>N.V.Vasanth Reddy</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- My Main CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .selector {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 140px;
+      height: 140px;
+      margin-top: -70px;
+      margin-left: -70px;
+    }
+
+    .selector,
+    .selector button {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+    }
+
+    .selector button {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      background: #428bca;
+      border-radius: 50%;
+      border: 0;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+      transition: all .1s;
+    }
+
+    .selector button:hover {
+      background: #3071a9;
+    }
+
+    .selector button:focus {
+      outline: none;
+    }
+
+    .selector ul {
+      position: absolute;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      top: -20px;
+      right: -20px;
+      bottom: -20px;
+      left: -20px;
+    }
+
+    .selector li {
+      position: absolute;
+      width: 0;
+      height: 100%;
+      margin: 0 50%;
+      -webkit-transform: rotate(-360deg);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .selector li input {
+      display: none;
+    }
+
+    .selector li input+label {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      width: 0;
+      height: 0;
+      line-height: 1px;
+      margin-left: 0;
+      background: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 1px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: none;
+      transition: all 0.8s ease-in-out, color 0.1s, background 0.1s;
+    }
+
+    .selector li input:checked+label {
+      color: white;
+    }
+
+    .selector.open li input+label {
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      margin-left: -40px;
+      font-size: 14px;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    var nbOptions = 8;
+    var angleStart = -360;
+
+    // jquery rotate animation
+    function rotate(li, d) {
+      $({
+        d: angleStart
+      }).animate({
+        d: d
+      }, {
+        step: function(now) {
+          $(li)
+            .css({
+              transform: 'rotate(' + now + 'deg)'
+            })
+            .find('label')
+            .css({
+              transform: 'rotate(' + (-now) + 'deg)'
+            });
+        },
+        duration: 0
+      });
+    }
+
+    function toggleOptions(s) {
+      $(s).toggleClass('open');
+      var li = $(s).find('li');
+      var deg = $(s).hasClass('half') ? 180 / (li.length - 1) : 360 / li.length;
+      for (var i = 0; i < li.length; i++) {
+        var d = $(s).hasClass('half') ? (i * deg) - 90 : i * deg;
+        $(s).hasClass('open') ? rotate(li[i], d) : rotate(li[i], angleStart);
+      }
+    }
+
+    $('.selector button').click(function(e) {
+      toggleOptions($(this).parent());
+    });
+
+    setTimeout(function() {
+      toggleOptions('.selector');
+    }, 100);
+  </script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Defining Menu and Intro Div -->
+
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center"> </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="#features" style="color:indigo">About</a></li>
+          <li><a class="nav-link" href="#mySkills" style="color:indigo">Skills</a></li>
+          <li><a class="nav-link" href="#myProjects" style="color:indigo">Projects</a></li>
+          <li><a class="nav-link" href="#testimonials" style="color:indigo">Achievements</a></li>
+          <li><a class="nav-link" href="#contact" style="color:indigo">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <section id="introduction" class="introduction d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Hi This is
+            <div style="color:indigo;">N.V Vasanth Reddy</div>
+          </h1>
+          <h2 data-aos="fade-down" data-aos-delay="400" class="font-weight:bold;"><span style="font-weight: bold;">Final Year Undergratuate at <em>IIIT Allahabad</em></span></h2>
+
+          <div data-aos="fade-up " data-aos-delay="600 ">
+            <div class="text-center text-lg-start ">
+              <a href=" " class="btn-get-started d-inline-flex align-items-center justify-content-center align-self-center " onclick="window.open( 'Resume/Vasanth_Reddy.pdf') ">
+                <span>Resume/CV</span>
+                <i class="bi bi-arrow-right "></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 ">
+          <div class='selector'>
+            <ul>
+              <li>
+                <input id='c1' type='checkbox'>
+                <label for='c1'> <a href="https://www.facebook.com/vasanth.reddy.12177/ "><i class="bi bi-facebook " style="font-size:50px;  color: rgb(81, 156, 225) "></i></a></label>
+              </li>
+              <li>
+                <input id='c2' type='checkbox'>
+                <label for='c2'> <a href="https://www.linkedin.com/in/vasanthreddy12/"><i class="bi bi-linkedin " style="font-size:50px; color: rgb(78, 78, 250) "></i></a></label>
+              </li>
+              <li>
+                <input id='c3' type='checkbox'>
+                <label for='c3'> <a href="https://twitter.com/NVVASANTHREDDY1/"><i class="bi bi-twitter " style="font-size:50px; color: rgb(3, 180, 229) "></i></a></label>
+              </li>
+              <li>
+                <input id='c4' type='checkbox'>
+                <label for='c4'> <a href="https://github.com/vasanthreddy12/"><i class="bi bi-github " style="font-size:50px;  color:black; "></i></a></label>
+              </li>
+              <li>
+                <input id='c5' type='checkbox'>
+                <label for='c5'> <a href="https://codeforces.com/profile/nvvasanth"><img src="assets/img/coding-profiles/CODEFORCES.jpg " alt=" " /></a></label>
+              </li>
+              <li>
+                <input id='c6' type='checkbox'>
+                <label for='c6'> <a href="https://www.codechef.com/users/vasanthnossam"><img src="assets/img/coding-profiles/CODECHEF.jpg " alt=" " /></a></label>
+              </li>
+              <li>
+                <input id='c7' type='checkbox'>
+                <label for='c7'> <a href="https://leetcode.com/vasanth12_3/"><img src="assets/img/coding-profiles/LEETCODE.png " alt=" " /></a></label>
+              </li>
+            </ul>
+            <img src="images/nvvr.png" alt="Profile Pic">
+          </div>
+
+          <div class="mySocials mt-5 ">
+
+            <a href="https://leetcode.com/Thundrbol8/ "><img src="assets/img/coding-profiles/LEETCODE.png " alt=" " style="border-radius:100%;" /></a>
+            <a href="https://www.codechef.com/users/ankush789 "><img src="assets/img/coding-profiles/CODECHEF.jpg " alt=" " style="border-radius:80%; " /></a>
+            <a href="https://codeforces.com/profile/Thundrbol8 "><img src="assets/img/coding-profiles/CODEFORCES.jpg " alt=" " style="border-radius:40%; " /></a>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- About Section -->
+
+  <section id="features " class="features ">
+    <div class="container " data-aos="fade-up " data-aos-delay="200 ">
+      <header class="section-header ">
+        <p><span style="font-family: Nunito, sans-serif; ">And Miles to Go Before I Sleep.....</span></p>
+      </header>
+
+      <div class="row ">
+
+        <div class="col-lg-6 ">
+          <img src="assets/img/features.png " class="img-fluid " alt=" ">
+        </div>
+
+        <div class="col-lg-6 mt-5 mt-lg-0 d-flex ">
+          <div class="row align-self-center gy-4 ">
+            <div class="col-md-12 " data-aos="zoom-out ">
+              <h3 style="line-height:1.6; text-align:justify; font-weight:bold; ">I am currently in final year pursuing Bachelors degree in
+                <span style="color:indigo;"><strong>Information Technology</strong></span> domain from <span style="color:indigo; "><em>IIIT Allahabad</em></span>. I have a keen interest in<span style="color:indigo; "> Web Development</span> I have a
+                passion to develop a beautiful <em style="color:indigo">front end</em> design which will be simple and clear.
+                I love to solve <span style="color:indigo;"><strong>Coding Challenges</strong></span> and exploring new domains of Computer Science.
+              </h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Projects Descriptions -->
+
+      <section id="myProjects " class="myProjects ">
+        <div class="container " data-aos="fade-up ">
+
+          <header class="section-header ">
+            <p><span style="font-family: Nunito, sans-serif; color:indigo"> MY PROJECTS </span></p>
+          </header>
+
+          <div class="row gy-4 myProjects-container " data-aos="fade-up " data-aos-delay="200 ">
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/job_portal.png" class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">Job Portal System</h2>
+                  <p style="font-weight:bold; ">Java GUI,Java JDBC,MYSQL</p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/jobportalsystem" title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/hvac.jpg " class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">HVAC System</h2>
+                  <p style="font-weight:bold; ">JAVA Android | XML | MongoDB</p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/hvacsystem" title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/student.jpg " class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">Student Attentitiveness Detection</h2>
+                  <p style="font-weight:bold; ">Python | OpenCV | TensorFlow</p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/mini_project_iiita-1" title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/access_restricted.jpg " class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">Access Restricted System</h2>
+                  <p style="font-weight:bold; ">Java GUI,Java JDBC,MYSQL</p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/accessrestrictionsystem" target="_blank " title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/phms.jpg " class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">Patient Health Montoring System</h2>
+                  <p style="font-weight:bold; ">Java Android | XML|FireBase </p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/mini_project_iiita-1" title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 myProjects-item filter-app ">
+              <div class="myProjects-wrap ">
+                <img src="assets/img/myProjects/hand.gif" class="img-fluid " alt=" ">
+                <div class="myProjects-info ">
+                  <h2 style="font-weight:bold; ">Hand Gesture Recognition</h2>
+                  <p style="font-weight:bold; ">Python| OpenCV | CNN</p>
+                  <div class="myProjects-links ">
+                    <a href="https://github.com/vasanthreddy12/accessrestrictionsystem" target="_blank " title="Github Link "><i class="bi bi-github "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+
+      <section id="testimonials " class="testimonials ">
+        <div class="container " data-aos="fade-up ">
+          <header class="section-header ">
+            <p><span style="font-family: Nunito, sans-serif ;color:indigo; "><i class="bi bi-trophy "></i> ACHIEVEMENTS </span></p>
+          </header>
+          <div class="testimonials-slider swiper " data-aos="fade-up " data-aos-delay="200 ">
+            <div class="swiper-wrapper ">
+
+
+              <div class="swiper-slide ">
+                <div class="testimonial-item ">
+                  <div class="stars ">
+                    <i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i>
+                  </div>
+                  <p style="font-weight:bold; " class="mt-5 "> Global Ranked 4600 out of 15000+ participants in weekly 296 </p>
+                  <div class="profile ">
+                    <img src="assets/img/leetcode.jpg" class="testimonial-img " alt=" ">
+                    <h3>LEETCODE</h3>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="swiper-slide ">
+                <div class="testimonial-item ">
+                  <div class="stars ">
+                    <i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i>
+                  </div>
+                  <p style="font-weight:bold; " class="mt-5 "> Global Ranked 450 out of 6000+ participants in Starters 43 </p>
+                  <div class="profile ">
+                    <img src="assets/img/CODECHEF.jpg " class="testimonial-img " alt=" ">
+                    <h3>CODECHEF</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide ">
+                <div class="testimonial-item ">
+                  <div class="stars ">
+                    <i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i>
+                  </div>
+                  <p style="font-weight:bold; " class="mt-5 "> 4 Star Coder at CodeChef with a rating of 1820 </p>
+                  <div class="profile ">
+                    <img src="assets/img/CODECHEF.jpg " class="testimonial-img " alt=" ">
+                    <h3>CODECHEF</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide ">
+                <div class="testimonial-item ">
+                  <div class="stars ">
+                    <i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i><i class="bi bi-star-fill "></i>
+                  </div>
+                  <p style="font-weight:bold; " class="mt-5 ">LeetCode rating of 1750</p>
+                  <div class="profile ">
+                    <img src="assets/img/leetcode.jpg " class="testimonial-img " alt=" ">
+                    <h3>LeetCode</h3>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+            <div class="swiper-pagination "></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+
+      <section id="mySkills" class="mySkills">
+        <div class="container-fluid" data-aos="fade-up">
+          <header class="section-header">
+            <p><span style="font-family: Nunito, sans-serif; color:indigo"> MY SKILLS </span>
+            </p>
+          </header>
+
+          <div class="row" data-aos="fade-left">
+            <div class="col-12" align="left" data-aos="fade-left" data-aos-delay="100">
+              <div>
+                <center>
+                  <h1 style="color:indigo"><strong>Web Development</strong></h1>
+                  <img src="assets/img/skill1_compress.png " class="img-fluid" alt=" " ">
+                </center>
+              </div>
+            </div>
+
+            <div class=" col-12 mt-5 " align=" right " data-aos=" fade-right " data-aos-delay=" 100 ">
+              <div>
+                  <img src=" assets/img/DBMS.png " class=" img-fluid " alt=" " ">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id=" contact " class="contact ">
+
+        <div class="container " data-aos="fade-up ">
+
+          <header class="section-header ">
+            <p><span style="font-family: Nunito, sans-serif; ">GET IN TOUCH</span></p>
+          </header>
+
+          <div class="row gy-4 ">
+            <div class="col ">
+              <div class="row gy-4 ">
+                <div class="col-md-4 ">
+                  <div class="info-box ">
+                    <i class="bi bi-telephone "></i>
+                    <h3 style="color:indigo">Contact Number</h3>
+                    <p>+91 8688291917</p>
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="info-box ">
+                    <i class="bi bi-envelope "></i>
+                    <h3 style="color:indigo">Mail</h3>
+                    <p>vasanthreddy.nossam30@gmail.com</p>
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="info-box ">
+                    <i class="bi bi-geo-alt "></i>
+                    <h3 style="color:indigo">Address</h3>
+                    <p>28/794/C5 NGO Colony Nandyal</p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row gy-4 m-2 " id="mobileSocial ">
+                <div class="col-md-1 col-3 " align="center" style="padding: 0 80px 0 250px">
+                  <a href="https://www.facebook.com/vasanth.reddy.12177/"><i class="bi bi-facebook " style="font-size:30px; color:indigo; "></i></a>
+                </div>
+                <div class="col-md-1 col-3 " align="center " style="padding: 0 90px 0 80px">
+                  <a href="https://www.linkedin.com/in/vasanthreddy12/"><i class="bi bi-linkedin " style="font-size:30px; color:indigo; "></i></a>
+                </div>
+                <div class="col-md-1 col-3 " align="center " style="padding: 0 90px 0 80px">
+                  <a href="https://twitter.com/NVVASANTHREDDY1/"><i class="bi bi-twitter " style="font-size:30px; color:indigo; "></i></a>
+                </div>
+                <div class="col-md-1 col-3 " align="center " style="padding: 0 170px 0 120px">
+                  <a href="https://github.com/vasanthreddy12/"><i class="bi bi-github " style="font-size:30px; color:indigo; "></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </main>
+
+      <!-- Footer Section -->
+
+      <!-- Footer -->
+<footer class="w3-center w3-indigo w3-padding-64">
+  <a href="index.html" class="w3-button w3-white"><i class="fa fa-arrow-up w3-margin-right w3-indigo"></i>To the top</a>
+  <div class="copyright" style="padding:20px"><h4>Designed with <i class="bi bi-heart " style="color:white; "></i> by <strong><span> Vasanth Reddy</span></strong>
+  </h4</div>
+</footer>
+
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/purecounter/purecounter.js "></script>
+      <script src="assets/vendor/aos/aos.js "></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js "></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js "></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js "></script>
+      <script src="assets/vendor/php-email-form/validate.js "></script>
+
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js "></script>
+
+</body>
+</html>
